@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "h.moad.smart.firebasechat"
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 10
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:5.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation files('libs/activation.jar')
+    implementation files('libs/additionnal.jar')
+    implementation files('libs/mail.jar')
+    implementation 'com.firebase:firebase-client-android:2.5.2'
+
+    implementation 'com.android.volley:volley:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.gms:play-services-vision:10.0.0'
+
+
+
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
+    // If you want to detect face contours (landmark detection and classification
+    // don't require this additional model):
+    implementation 'com.google.firebase:firebase-ml-vision-face-model:19.0.0'
+    implementation 'com.google.gms:google-services:4.2.0'
+
+    testImplementation 'junit:junit:4.12'
+
+}
+apply plugin: 'com.google.gms.google-services'
