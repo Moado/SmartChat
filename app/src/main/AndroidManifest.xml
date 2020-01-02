@@ -26,6 +26,18 @@
         <activity android:name=".Chat" />
         <activity android:name=".TermsActivity"/>
         <activity android:name=".Opencamera"/>
-    </application>
+        <activity android:theme="@style/AppTheme.NoActionBar" android:label="@string/name_2" android:name=".OpenNotes">
 
+
+    <intent-filter>
+
+    <action android:name="android.intent.action.MAIN"/>
+
+    <category android:name="android.intent.category.LAUNCHER"/>
+
+</intent-filter>
+
+</activity>
+
+    </application>
 </manifest>

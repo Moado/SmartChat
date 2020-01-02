@@ -20,7 +20,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:padding="4dp"
         android:src="@android:drawable/ic_btn_speak_now"
         android:onClick="getSpeechInput"
@@ -29,7 +29,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:padding="4dp"
         android:src="@android:drawable/ic_menu_camera"
         android:onClick="openCamera"
@@ -38,7 +38,17 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="4"
+        android:layout_weight="3"
+        android:padding="4dp"
+        android:src="@android:drawable/ic_menu_camera"
+        android:onClick="OpenNotes"
+        android:id="@+id/open_notes"/>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
         android:padding="4dp"
         android:src="@android:drawable/ic_menu_send"
         android:id="@+id/sendButton"/>

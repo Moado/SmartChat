@@ -77,10 +77,13 @@ public class Chat extends AppCompatActivity {
         scrollView = (ScrollView) findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://smart.firebasechat.firebaseio.com/messages/" + UserDetails.username + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://smart.firebasechat.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.username);
-        reference3 = new Firebase("https://smart.firebasechat.firebaseio.com/messages/" + UserDetails.username + "_Encrypted_" + UserDetails.chatWith);
-        reference4 = new Firebase("https://smart.firebasechat.firebaseio.com/messages/" + UserDetails.chatWith + "_Encrypted_" + UserDetails.username);
+        reference1 = new Firebase("https://smart-firebasechat.firebaseio.com/messages/" + UserDetails.username + "_" + UserDetails.chatWith);
+        reference2 = new Firebase("https://smart-firebasechat.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.username);
+        reference3 = new Firebase("https://smart-firebasechat.firebaseio.com/messages/" + UserDetails.username + "_Encrypted_" + UserDetails.chatWith);
+        reference4 = new Firebase("https://smart-firebasechat.firebaseio.com/messages/" + UserDetails.chatWith + "_Encrypted_" + UserDetails.username);
+
+
+
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,42 +146,51 @@ public class Chat extends AppCompatActivity {
         });
 
 
-            reference1.addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    Map map = dataSnapshot.getValue(Map.class);
-                    String message = map.get("message").toString();
-                    String userName = map.get("user").toString();
+        reference1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Map map = dataSnapshot.getValue(Map.class);
+                String message = map.get("message").toString();
+                String userName = map.get("user").toString();
 
-                    if (userName.equals(UserDetails.username)) {
-                        addMessageBox("You:-\n" + message, 1);
-                    } else {
-                        addMessageBox(UserDetails.chatWith + ":-\n" + message, 2);
-                    }
+                if (userName.equals(UserDetails.username)) {
+                    addMessageBox("You:-\n" + message, 1);
+                } else {
+                    addMessageBox(UserDetails.chatWith + ":-\n" + message, 2);
                 }
+            }
 
-                @Override
-                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                }
+            }
 
-                @Override
-                public void onChildRemoved(DataSnapshot dataSnapshot) {
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-                }
+            }
 
-                @Override
-                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-                }
+            }
 
-                @Override
-                public void onCancelled(FirebaseError firebaseError) {
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
 
-                }
-            });
+            }
+        });
 
     }
+
+
+//////////////////////////////////////////// OnClick - NotesApp
+
+    public void OpenNotes(View view) {
+        Intent openNotes = new Intent(Chat.this, OpenNotes.class);
+        startActivity(openNotes);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -429,3 +441,7 @@ public class Chat extends AppCompatActivity {
 
 
 }
+
+
+
+

@@ -23,4 +23,16 @@
     <string name="forgotPassword">Forgot password?</string>
     <string name="forgotPassword2"> <u>Click here</u></string>
 
+
+    <string name="name_2">Manage Productivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="activity_title_home">Notes</string>
+    <string name="msg_no_notes">No notes found!</string>
+    <string name="lbl_new_note_title">New Note</string>
+    <string name="lbl_edit_note_title">Edit Note</string>
+    <string name="hint_enter_note">Enter your note!</string>
+    <string name="start_the_browser">Start The Browser</string>
+    <string name="dialer">Dialer</string>
+
+
 </resources>
